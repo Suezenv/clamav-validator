@@ -1,0 +1,22 @@
+{
+    "name": "suez/clamav-validator",
+    "description": "Symfony clamAV validator",
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+             "Suez\\ClamAV\\  ": "src" 
+        }
+    },
+    "autoload-dev": {
+        "psr-4": { 
+            "Suez\\ClamAV\\Tests\\": "tests/" 
+        }
+    },
+    "require": {
+        "appwrite/php-clamav": "^1.1.0"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.0",
+        "symfony/validator": "^5.2"
+    }
+}
