@@ -2,7 +2,7 @@
 
 namespace Suez\ClamAV\Validator\Constraint;
 
-use Appwrite\ClamAV\Network;
+use Suez\ClamAV\AppWrite\ClamAV\NetworkStream;
 use Suez\ClamAV\Validator\Constraint\ClamAv;
 use Suez\ClamAV\Validator\Constraint\ClamAvUnreachableServiceException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -16,15 +16,15 @@ use Symfony\Component\Validator\Exception\UnexpectedTypeException as ExceptionUn
 class ClamAvValidator extends ConstraintValidator
 {
     /**
-     * @var Network
+     * @var NetworkStream
      */
     private $network;
 
     /**
      * ClamAvValidator constructor.
-     * @param Network $network
+     * @param NetworkStream $network
      */
-    public function __construct(Network $network)
+    public function __construct(NetworkStream $network)
     {
         $this->network = $network;
     }
