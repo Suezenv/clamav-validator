@@ -27,21 +27,22 @@ class ClamAvValidatorTest extends TestCase
     {
         $clamAvvalidator = new ClamAvValidator(new NetworkStream('clamav-service'));
         $context = $this->getMockBuilder(ExecutionContextInterface::class)->getMock();
-
+        
         $violation = $this->getMockBuilder(ConstraintViolationBuilderInterface::class)->getMock();
         $violation->expects($this->any())->method('setParameter')->willReturn($violation);
-
+        
         if ($expectedViolation) {
             $violation->expects($this->once())->method('addViolation')->willReturn($violation);
             $context
-                ->expects($this->once())
-                ->method('buildViolation')->willReturn($violation);
+            ->expects($this->once())
+            ->method('buildViolation')->willReturn($violation);
         } else {
             $context
-                ->expects($this->never())
-                ->method('buildViolation');
+            ->expects($this->never())
+            ->method('buildViolation');
         }
-
+        
+        /** @var ExecutionContextInterface $context */
         $clamAvvalidator->initialize($context);
 
         return $clamAvvalidator;

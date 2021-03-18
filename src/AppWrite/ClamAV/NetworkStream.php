@@ -9,7 +9,7 @@ class NetworkStream extends Network {
     /** 
      * Inspired by https://fossies.org/linux/www/moodle-latest-310.tgz/moodle/lib/antivirus/clamav/classes/scanner.php
      */
-    public function instreamFileScan($file): bool 
+    public function instreamFileScan(string $file): bool 
     {
         $socket = $this->getSocket();
         socket_write($socket, "nINSTREAM\n");

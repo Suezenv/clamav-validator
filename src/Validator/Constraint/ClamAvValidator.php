@@ -2,12 +2,13 @@
 
 namespace Suez\ClamAV\Validator\Constraint;
 
-use AppBundle\Security\ClamAv\ClamAvServiceNotStartedException;
 use Appwrite\ClamAV\Network;
-use Symfony\Component\Form\Exception\UnexpectedTypeException;
+use Suez\ClamAV\Validator\Constraint\ClamAv;
+use Suez\ClamAV\Validator\Constraint\ClamAvUnreachableServiceException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
+use Symfony\Component\Validator\Exception\UnexpectedTypeException as ExceptionUnexpectedTypeException;
 
 /**
  * Class ClamAvValidator
@@ -31,22 +32,21 @@ class ClamAvValidator extends ConstraintValidator
     /**
      * @param mixed $value
      * @param Constraint $constraint
-     * @throws ClamAvServiceNotStartedException
      */
     public function validate($value, Constraint $constraint)
     {
         $values = is_array($value) ? $value : [$value];
 
         if (!$constraint instanceof ClamAv) {
-            throw new UnexpectedTypeException($constraint, ClamAv::class);
+            throw new ExceptionUnexpectedTypeException($constraint, ClamAv::class);
         }
 
-        if (empty($values) || '' === $values) {
+        if (empty($values)) {
             return;
         }
 
         if (!$this->network->ping()) {
-            throw new ClamAvServiceNotStartedException("Le service ClamAV est indisponible");
+            throw new ClamAvUnreachableServiceException("ClamAV service is not reachable");
         }
 
         foreach($values as $fileUpload) {
