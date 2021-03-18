@@ -10,4 +10,4 @@ test:
 	docker-compose run --rm --w /app php vendor/bin/phpunit
 
 install:
-	docker run  --rm -ti --volume ${PWD}:/app -w /app composer:2 install
+	docker run  --rm --volume ${PWD}:/app -w /app composer:2 install
