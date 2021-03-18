@@ -7,7 +7,7 @@ down:
 	docker-compose down --remove-orphans
 	
 test:
-	docker run php:7.4-fpm-buster -v ${PWD}:/var/app -w /var/app --rm php -v
+	docker-compose run --rm --w /app php vendor/bin/phpunit
 
 install:
-	docker run composer:2 --rm -ti --volume ${PWD}:/app -w /app install
+	docker run  --rm -ti --volume ${PWD}:/app -w /app composer:2 install
