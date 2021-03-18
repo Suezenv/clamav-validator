@@ -21,7 +21,7 @@ jobs:
       run: make up && make install
 
     - name: Exec tests
-      run: make test
+      run: sleep 15 && make test
 
     - name: Unmount
       run: make down
