@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Validator\Constraints;
+namespace Suez\ClamAV\Validator\Constraint;
 
 use Symfony\Component\Validator\Constraint;
 

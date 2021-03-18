@@ -1,7 +1,12 @@
 version: "3.8"
 
 services:
-  clamav:
-    build: ./
+  clamav-service:
+    build: ./docker/clamav
     ports: 
       - 3310:3310
+  
+  php:
+    build: ./docker/php
+    volumes: 
+      - ${PWD}:/app

@@ -1,6 +1,6 @@
 <?php
 
-namespace Suez\Clamav\Validator\Constraints;
+namespace Suez\ClamAV\Validator\Constraint;
 
 use AppBundle\Security\ClamAv\ClamAvServiceNotStartedException;
 use Appwrite\ClamAV\Network;
