@@ -8,12 +8,12 @@
 
 #### Add repository in composer.json
 
-```
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/Suezenv/clamav-validator.git"
-        }
+```json
+"repositories": [
+{
+    "type": "vcs",
+    "url": "https://github.com/Suezenv/clamav-validator.git"
+}
 ```
 
 #### Install with composer
@@ -22,7 +22,7 @@
 
 #### Add constraint as service
 
-```
+```yaml
 Suez\ClamAV\Validator\Constraint\ClamAvValidator:
     autowire: true
     tags:
@@ -34,7 +34,8 @@ Suez\ClamAV\AppWrite\NetworkStream: ~
 ### Usage
 
 #### Add validation annotation
-```
+
+```php
 #MyEntity
 <?php
 
