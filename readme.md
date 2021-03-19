@@ -1,3 +1,6 @@
+![Master](https://github.com/Suezenv/clamav-validator/actions/workflows/php.yml/badge.svg?branch=master)
+
+
 ## Symfony Clamav file upload validator
 
 
