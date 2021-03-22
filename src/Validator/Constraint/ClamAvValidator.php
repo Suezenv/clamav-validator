@@ -72,7 +72,7 @@ class ClamAvValidator extends ConstraintValidator
             #Ensure file is readable by clamAV
             chmod($fileUpload->getRealPath(), 0664);
 
-            if (false === $this->network->fileScan($fileUpload->getRealPath())) {
+            if (false === $this->network->instreamFileScan($fileUpload->getRealPath())) {
                 $this->context->buildViolation($constraint->message)
                     ->setParameter('{{ file }}', $fileUpload->getClientOriginalName())
                     ->addViolation();

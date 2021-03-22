@@ -1,0 +1,4 @@
+https://raw.githubusercontent.com/reversinglabs/reversinglabs-yara-rules/develop/yara/certificate/blocklist.yara
+https://raw.githubusercontent.com/reversinglabs/reversinglabs-yara-rules/develop/yara/ransomware/Linux.Ransomware.KillDisk.yara
+https://raw.githubusercontent.com/reversinglabs/reversinglabs-yara-rules/develop/yara/ransomware/Linux.Ransomware.LuckyJoe.yara
+https://raw.githubusercontent.com/reversinglabs/reversinglabs-yara-rules/develop/yara/virus/Linux.Virus.Vit.yara
