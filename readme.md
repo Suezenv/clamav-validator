@@ -25,10 +25,10 @@
 ```yaml
 Suez\ClamAV\Validator\Constraint\ClamAvValidator:
     autowire: true
-    tags:
-        - { name: validator.constraint_validator}
+    autoconfigure: true
 
-Suez\ClamAV\AppWrite\NetworkStream: ~
+Suez\ClamAV\AppWrite\NetworkStream:
+    $host: clamav-host
 ```
 
 ### Usage
