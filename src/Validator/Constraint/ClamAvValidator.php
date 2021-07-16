@@ -80,7 +80,7 @@ class ClamAvValidator extends ConstraintValidator
                 $success = false;
             }
             #Restore previous permission file
-            chmod($fileUpload->getRealPath(), $initPerm);
+            chmod($fileUpload->getRealPath(), octdec($initPerm));
 
         }
 
