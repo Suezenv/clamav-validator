@@ -23,7 +23,7 @@ jobs:
         AZ_DOCKER_REGISTRY_USER: ${{ secrets.AZ_DOCKER_REGISTRY_USER }}
         AZ_DOCKER_REGISTRY_PWD: ${{ secrets.AZ_DOCKER_REGISTRY_PWD }}
       run: |
-        echo  "AZ_DOCKER_REGISTRY_PWD" | docker login -u ${AZ_DOCKER_REGISTRY_USER} ${AZ_DOCKER_REGISTRY_HOST} --password-stdin
+        echo  ${AZ_DOCKER_REGISTRY_PWD} | docker login -u ${AZ_DOCKER_REGISTRY_USER} ${AZ_DOCKER_REGISTRY_HOST} --password-stdin
 
     - name: mount service
       run: make up && make install
