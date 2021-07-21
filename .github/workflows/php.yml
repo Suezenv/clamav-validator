@@ -17,6 +17,14 @@ jobs:
     - name: Validate composer.json and composer.lock
       run: composer validate
 
+    - name: docker login
+      env:
+        AZ_DOCKER_REGISTRY_HOST: ${{ secrets.AZ_DOCKER_REGISTRY_HOST }}
+        AZ_DOCKER_REGISTRY_USER: ${{ secrets.AZ_DOCKER_REGISTRY_USER }}
+        AZ_DOCKER_REGISTRY_PWD: ${{ secrets.AZ_DOCKER_REGISTRY_PWD }}
+      run: |
+        echo  "AZ_DOCKER_REGISTRY_PWD" | docker login -u ${AZ_DOCKER_REGISTRY_USER} ${AZ_DOCKER_REGISTRY_HOST} --password-stdin
+
     - name: mount service
       run: make up && make install
 
@@ -25,3 +33,6 @@ jobs:
 
     - name: Unmount
       run: make down
+
+    - name: Unmount
+      run: docker logout && rm -f /home/runner/.docker/config.jso
