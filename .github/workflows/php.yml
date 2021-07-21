@@ -34,5 +34,5 @@ jobs:
     - name: Unmount
       run: make down
 
-    - name: Unmount
+    - name: remove data
       run: docker logout && rm -f /home/runner/.docker/config.jso
