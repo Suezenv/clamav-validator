@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   clamav-service:
-    build: ./docker/clamav
+    image: 3snetregistry.azurecr.io/tsmx/clamav:latest
     ports: 
       - 3310:3310
   
