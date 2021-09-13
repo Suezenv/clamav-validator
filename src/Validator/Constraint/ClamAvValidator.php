@@ -35,14 +35,14 @@ class ClamAvValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint)
     {
+        if (empty($value)) {
+            return;
+        }
+
         $values = is_array($value) ? $value : [$value];
 
         if (!$constraint instanceof ClamAv) {
             throw new ExceptionUnexpectedTypeException($constraint, ClamAv::class);
-        }
-
-        if (empty($values)) {
-            return;
         }
 
         if (!$this->network->ping()) {
